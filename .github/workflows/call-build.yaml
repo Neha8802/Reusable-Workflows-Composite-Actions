@@ -8,7 +8,7 @@ on:
 
 jobs:
   caller-build-workflow:
-    uses: ./.github/workflows/reusable-build.yml
+    uses: ./.github/workflows/reusable-build.yaml
     with:
       app_name: "my-web-app"
       environment: "production"
