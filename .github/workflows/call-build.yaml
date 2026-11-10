@@ -1,0 +1,16 @@
+name: caller-build-yaml
+
+on: 
+  push:
+    branches:
+      - main 
+
+
+jobs:
+  caller-build-workflow:
+    uses: ./.github/workflows/reusable-build.yml
+    with:
+      app_name: "my-web-app"
+      environment: "production"
+    secrets: 
+      docker_token: ${{ secrets.docker_hub }}
