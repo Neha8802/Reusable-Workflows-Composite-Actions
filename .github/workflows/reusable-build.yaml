@@ -11,7 +11,7 @@ on:
         required: true
         default: 'staging'
     secrets:
-      docker_token:
+      DOCKERHUB_TOKEN:
        required: true
 
 jobs:
