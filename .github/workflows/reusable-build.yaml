@@ -11,7 +11,7 @@ on:
         required: true
         default: 'staging'
     secrets:
-      dockerhub_token:
+      DOCKERHUB_TOKEN:
        required: true
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
 
     - name: verify docker token presence 
       run: |
-        if [ -n "${{ secrets.dockerhub_token }}" ]; then
+        if [ -n "${{ secrets.DOCKERHUB_TOKEN }}" ]; then
            echo "docker token is set: true"
         else
            echo "docker token is set: false"
