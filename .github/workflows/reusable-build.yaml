@@ -27,7 +27,7 @@ jobs:
 
     - name: verify docker token presence 
       run: |
-        if [ -n "${{ secrets.docker_token }}" ]; then
+        if [ -n "${{ secrets.dockerhub_token }}" ]; then
            echo "docker token is set: true"
         else
            echo "docker token is set: false"
