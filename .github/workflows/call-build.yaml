@@ -13,4 +13,4 @@ jobs:
       app_name: "my-web-app"
       environment: "production"
     secrets: 
-      dockerhub_token: ${{ secrets.dockerhub_token }}
+      dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
