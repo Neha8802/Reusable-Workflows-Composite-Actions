@@ -14,6 +14,11 @@ on:
       DOCKERHUB_TOKEN:
        required: true
 
+    outputs:
+      build_version:
+        description: provide the build version
+        value: jobs.reusable_build.outputs.build_version
+
 jobs:
   reusable_build:
     runs-on: ubuntu-latest
@@ -21,6 +26,14 @@ jobs:
     steps:
     - name: checkout the code
       uses: actions/checkout@v4
+
+    - name: Generate Version String
+      id: generate_version
+      run: |
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          VERSION="v1.0-$SHORT_SHA"
+          echo "build_version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Generated version: $VERSION"
 
     - name: print build target
       run: echo "building ${{ inputs.app_name }} for ${{ inputs.environment }}"
