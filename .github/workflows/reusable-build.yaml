@@ -17,11 +17,14 @@ on:
     outputs:
       build_version:
         description: provide the build version
-        value: jobs.reusable_build.outputs.build_version
+        value: ${{ jobs.reusable_build.outputs.build_version }}
 
 jobs:
   reusable_build:
     runs-on: ubuntu-latest
+
+    outputs:
+      build_version: ${{ steps.generate_version.outputs.build_version }}
 
     steps:
     - name: checkout the code
