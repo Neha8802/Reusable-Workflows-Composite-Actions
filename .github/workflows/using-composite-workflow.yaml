@@ -15,7 +15,7 @@ jobs:
 
       - name: use composite yaml
         id: my_action
-        uses: ./.github/actions/setup-and-greet/action.yml
+        uses: ./.github/actions/setup-and-greet
         with:
           name: "Neha"
           language: "en"
