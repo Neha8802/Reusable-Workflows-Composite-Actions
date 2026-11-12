@@ -1,0 +1,41 @@
+name: composite yaml
+description: we are gathering steps here
+
+
+inputs:
+  name: 
+   description: "name to greet"
+   required: true
+   default: "developer"
+
+outputs:
+  greeted:
+   description: "confirmation that the action ran"
+   value: ${{ steps.set_output.outputs.greeted.status }}
+
+
+runs:
+  using: "composite"
+  steps:
+    - name: print greeting
+      shell: bash
+      run: |
+        echo "Hello, ${{inputs.name}}! welcome."
+
+
+    - name: print date and runner os
+      shell: bash
+      run: |
+       echo "current date: $(date)"
+       echo "Runner Os: ${{ runner.os }}"
+
+
+    - name: set greeted output
+      id: set_output
+      shell: bash
+      run: |
+        echo "greeted_status=true" >> $GITHUB_OUTPUT
+
+   
+
+   
