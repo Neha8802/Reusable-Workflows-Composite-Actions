@@ -15,7 +15,7 @@ inputs:
 outputs:
   greeted:
    description: "confirmation that the action ran"
-   value: ${{ steps.set_output.outputs.greeted_status }}
+   value: ${{ steps.set_output.outputs.greeted }}
 
 
 runs:
@@ -38,7 +38,7 @@ runs:
       id: set_output
       shell: bash
       run: |
-        echo "greeted_status=true" >> $GITHUB_OUTPUT
+        echo "greeted=true" >> $GITHUB_OUTPUT
 
    
 
