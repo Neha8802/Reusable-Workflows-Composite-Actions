@@ -23,9 +23,6 @@ jobs:
   reusable_build:
     runs-on: ubuntu-latest
 
-    outputs:
-      build_version: ${{ steps.generate_version.outputs.build_version }}
-
     steps:
     - name: checkout the code
       uses: actions/checkout@v4
