@@ -1,0 +1,26 @@
+name: using composite
+
+on: 
+  push:
+    branches:
+      - main
+
+
+jobs:
+  calling-composite-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v4
+
+      - name: use composite yaml
+        id: my_action
+        uses: ./.github/actions/setup-and-greet
+        with:
+          name: "Neha"
+          language: "en"
+
+      - name: print the output
+        run: |
+          echo "was the action greeted? ${{ steps.my_action.outputs.greeted }}"
+    
