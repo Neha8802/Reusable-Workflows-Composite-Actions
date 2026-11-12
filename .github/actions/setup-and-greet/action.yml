@@ -7,6 +7,10 @@ inputs:
    description: "name to greet"
    required: true
    default: "developer"
+  language:
+   description: "language in which to greet"
+   required: true
+   default: "en"
 
 outputs:
   greeted:
